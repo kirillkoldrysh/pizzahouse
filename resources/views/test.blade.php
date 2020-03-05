@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Test</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -65,35 +65,35 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
-                    Hello! It's Pizza time!
+                    Test page
                 </div>
+                <p>{{ $type }} - {{ $base }} - {{ $price }}</p>
+                @if ($price > 40) 
+                    <p>This pizza is too expensive</p>
+                @elseif ($price > 20)
+                    <p>This pizza is normally priced</p>
+                @else
+                    <p>This pizza is cheap</p>
+                @endif
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                @unless ($base == 'cheesy crust')
+                    <p>You don't have cheesy crust</p>
+                @endunless
+
+                @php
+                    $user = "Marco";
+                    echo $user;
+                @endphp
+
+                @for ($i = 0; $i < 5; $i++)
+                    <p>The value of i is: {{ $i+1 }}</p> 
+                @endfor
+
+                @for ($i = 0; $i < count($pizzas); $i++)
+                    <p>{{ $pizzas[$i]['type'] }} - {{ $pizzas[$i]['base'] }} - {{ $pizzas[$i]['price'] }}</p>
+                @endfor
             </div>
         </div>
     </body>
