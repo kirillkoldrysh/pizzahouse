@@ -17,7 +17,7 @@ class PizzaController extends Controller
         $name = request('name');
         $age = request('age');
 
-        return view('pizzas', [
+        return view('pizzas.index', [
             'pizzas' => $pizzas,
             'name' => $name,
             'age' => $age,    
@@ -26,8 +26,13 @@ class PizzaController extends Controller
 
     public function show($id)
     {
-        return view('details', [
+        return view('pizzas.show', [
             'id' => $id,
         ]);
+    }
+
+    public function create()
+    {
+        return view('pizzas.create');
     }
 }

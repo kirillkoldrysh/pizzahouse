@@ -3,20 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Burger;
 
 class BurgerController extends Controller
 {
     public function index()
     {
-        $burgers = [
-            ['type' => 'hamburger', 'price' => '12,99'],
-            ['type' => 'gunburger', 'price' => '13,99'],
-            ['type' => 'cheeseburger', 'price' => '10,59'],
-            ['type' => 'vegburger', 'price' => '11,19'],
-        ];
+        $burgers = Burger::all();
 
-        return view('burgers', [
+        return view('burgers.index', [
             'burgers' => $burgers,
         ]);
+    }
+
+    public function show($id)
+    {
+        $burger = Burger::where('id', $id)->get();
+        return view('burgers.show', [
+            'burger' => $burger[0] ?? null,
+        ]);
+    }
+
+    public function create()
+    {
+        return view('burgers.create');
     }
 }
