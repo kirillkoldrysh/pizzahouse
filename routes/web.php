@@ -20,7 +20,9 @@ Route::get('/', function () {
 Route::get('/pizzas', 'PizzaController@index');
 Route::get('/pizzas/create', 'PizzaController@create');
 Route::get('/pizzas/{id}', 'PizzaController@show');
+Route::post('/pizzas', 'PizzaController@store');
 
 Route::get('/burgers', 'BurgerController@index');
 Route::get('/burgers/create', 'BurgerController@create');
 Route::get('/burgers/{id}', 'BurgerController@show');
+Route::post('/burgers', 'BurgerController@store');

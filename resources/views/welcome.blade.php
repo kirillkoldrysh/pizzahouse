@@ -2,25 +2,22 @@
 
 @section('content')
 <div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-
     <div class="content">
-        <img src="/img/pizza-house.png" alt="pizza-house-logo">
+                <img src="/img/pizza-house.png" alt="pizza-house-logo">
         <div class="title m-b-md">
             Hello! It's Pizza time!
         </div>
+        <div class="links">
+            <a href="/pizzas/create">Create a pizza order</a>
+            <a href="/burgers/create">Create a burger order</a>
+            <a href="/pizzas">Pizzas list</a>
+            <a href="/burgers">Burgers list</a>
+        </div>
+        @if (null !== session('mssg'))
+            <div class="l-title">
+                {{ session('mssg') }}    
+            </div>
+        @endif
     </div>
 </div>
 @endsection

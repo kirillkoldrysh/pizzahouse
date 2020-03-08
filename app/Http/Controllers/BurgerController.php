@@ -18,14 +18,25 @@ class BurgerController extends Controller
 
     public function show($id)
     {
-        $burger = Burger::where('id', $id)->get();
+        $burger = Burger::find($id);
         return view('burgers.show', [
-            'burger' => $burger[0] ?? null,
+            'burger' => $burger,
         ]);
     }
 
     public function create()
     {
         return view('burgers.create');
+    }
+
+    public function store()
+    {
+        $burger = new Burger();
+        $burger->type = request('type');
+        $burger->name = request('name');
+        $burger->price = request('price');
+
+        $burger->save();
+        return redirect('/')->with('mssg', 'Thanks for everything, what you have done for me');
     }
 }
