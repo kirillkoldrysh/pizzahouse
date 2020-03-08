@@ -9,7 +9,7 @@
             <p><a href="burgers/{{ $burger->id }}">{{ ($loop->index + 1) }}) {{ $burger['type'] }} - {{ $burger['price'] }}$</a></p>
         @endforeach
 
-        <a href="/">Back to main page</a>
+        <a href="/">Back to the main page</a>
     </div>
 </div>
 

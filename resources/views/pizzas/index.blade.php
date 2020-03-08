@@ -20,7 +20,7 @@
             </p>
         @endforeach
         <div class="links">
-            <a href="/">Back to main page</a>
+            <a href="/">Back to the main page</a>
         </div>
     </div>
 </div>

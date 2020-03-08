@@ -28,6 +28,13 @@
             <input name="price" id="price" type="number">
 
             <input type="submit" id="submit" value="Order Pizza">
+            <fieldset>
+                <label for="toppings">Extra toppings</label>
+                <input type="checkbox" name="topings[]" value="mushrooms">Mushrooms<br />
+                <input type="checkbox" name="topings[]" value="tomatoes">Tomatoes<br />
+                <input type="checkbox" name="topings[]" value="ananas">Ananas<br />
+                <input type="checkbox" name="topings[]" value="extra cheese">Extra cheese<br />
+            </fieldset>
         </form>
     </div>
 </div>

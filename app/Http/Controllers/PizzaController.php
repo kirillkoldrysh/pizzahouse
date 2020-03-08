@@ -40,10 +40,11 @@ class PizzaController extends Controller
     public function store()
     {
         $pizza = new Pizza();
-        $pizza->name = request('name');
+        $pizza->name = request('name') ?? '';
         $pizza->type = request('type');
         $pizza->base = request('base');
-        $pizza->price = request('price');
+        $pizza->price = request('price') ?? 0;
+        $pizza->topings = request('topings') ?? [];
 
         $pizza->save();
 
