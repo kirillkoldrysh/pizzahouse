@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="flex-center position-ref full-height">
@@ -10,7 +10,7 @@
         <div class="links">
             <a href="/pizzas/create">Create a pizza order</a>
             <a href="/burgers/create">Create a burger order</a>
-            <a href="/pizzas">Pizzas list</a>
+            <a href="{{ route('pizzas.index') }}">Pizzas list</a>
             <a href="/burgers">Burgers list</a>
         </div>
         @if (null !== session('mssg'))

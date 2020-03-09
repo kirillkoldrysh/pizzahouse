@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="flex-center position-ref full-height">
@@ -13,7 +13,7 @@
                     @endforeach
                 </ul>
 
-                <form action="" method="post">
+                <form action="{{ route('pizzas.destroy', $pizza->id) }}" method="post">
                     @csrf
                     @method("DELETE")
                     <button>Complete order</button>
@@ -22,7 +22,7 @@
                 Pizza is not found
             @endif
         </div>
-        <a href="/pizzas">Back to all pizzas</a>
+        <a href="{{ route('pizzas.index') }}">Back to all pizzas</a>
     </div>
 </div>
 @endsection

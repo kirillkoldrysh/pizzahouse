@@ -1,10 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="wrapper create-pizza">
     <h4>Add a new pizza</h4>
 
-    <form action="/pizzas" method="post" class="main-form">
+    <form action="{{ route('pizzas.store') }}" method="post" class="main-form">
         @csrf
         <label for="name">Name: </label>
         <input type="text" id="name" name="name">
