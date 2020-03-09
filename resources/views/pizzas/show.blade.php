@@ -12,6 +12,12 @@
                         <li>{{ $toping }}</li>
                     @endforeach
                 </ul>
+
+                <form action="" method="post">
+                    @csrf
+                    @method("DELETE")
+                    <button>Complete order</button>
+                </form>
             @else
                 Pizza is not found
             @endif
